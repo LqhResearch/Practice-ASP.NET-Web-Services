@@ -76,9 +76,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="assets\css\login.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\js\login.js" />
     <Content Include="Default.aspx" />
+    <Content Include="GoogleLogin.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ShowUser.aspx" />
     <Content Include="Web.config" />
     <None Include="Connected Services\Service\Service.wsdl" />
     <Content Include="Connected Services\Service\WebForm.Service.LoginResponse.datasource">
@@ -98,6 +102,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GoogleLogin.aspx.cs">
+      <DependentUpon>GoogleLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GoogleLogin.aspx.designer.cs">
+      <DependentUpon>GoogleLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -106,6 +117,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowUser.aspx.cs">
+      <DependentUpon>ShowUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowUser.aspx.designer.cs">
+      <DependentUpon>ShowUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SiteMaster.Master.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,6 +133,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connected Services\Service\WebForm.Service.GetTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Service\WebForm.Service.UserClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="SiteMaster.Master" />
     <None Include="Web.Debug.config">

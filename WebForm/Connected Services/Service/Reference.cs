@@ -9,7 +9,182 @@
 //------------------------------------------------------------------------------
 
 namespace WebForm.Service {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserClass", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class UserClass : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string given_nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string family_nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string linkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string pictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string genderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string localeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string emailField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.idField, value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string given_name {
+            get {
+                return this.given_nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.given_nameField, value) != true)) {
+                    this.given_nameField = value;
+                    this.RaisePropertyChanged("given_name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string family_name {
+            get {
+                return this.family_nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.family_nameField, value) != true)) {
+                    this.family_nameField = value;
+                    this.RaisePropertyChanged("family_name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string link {
+            get {
+                return this.linkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.linkField, value) != true)) {
+                    this.linkField = value;
+                    this.RaisePropertyChanged("link");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string picture {
+            get {
+                return this.pictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.pictureField, value) != true)) {
+                    this.pictureField = value;
+                    this.RaisePropertyChanged("picture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string gender {
+            get {
+                return this.genderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.genderField, value) != true)) {
+                    this.genderField = value;
+                    this.RaisePropertyChanged("gender");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string locale {
+            get {
+                return this.localeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.localeField, value) != true)) {
+                    this.localeField = value;
+                    this.RaisePropertyChanged("locale");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public string email {
+            get {
+                return this.emailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.emailField, value) != true)) {
+                    this.emailField = value;
+                    this.RaisePropertyChanged("email");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Service.ServiceSoap")]
@@ -21,6 +196,13 @@ namespace WebForm.Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Login", ReplyAction="*")]
         System.Threading.Tasks.Task<WebForm.Service.LoginResponse> LoginAsync(WebForm.Service.LoginRequest request);
+        
+        // CODEGEN: Generating message contract since element name code from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetToken", ReplyAction="*")]
+        WebForm.Service.GetTokenResponse GetToken(WebForm.Service.GetTokenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetToken", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebForm.Service.GetTokenResponse> GetTokenAsync(WebForm.Service.GetTokenRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -95,6 +277,74 @@ namespace WebForm.Service {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetTokenRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetToken", Namespace="http://tempuri.org/", Order=0)]
+        public WebForm.Service.GetTokenRequestBody Body;
+        
+        public GetTokenRequest() {
+        }
+        
+        public GetTokenRequest(WebForm.Service.GetTokenRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetTokenRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string code;
+        
+        public GetTokenRequestBody() {
+        }
+        
+        public GetTokenRequestBody(string code) {
+            this.code = code;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetTokenResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTokenResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebForm.Service.GetTokenResponseBody Body;
+        
+        public GetTokenResponse() {
+        }
+        
+        public GetTokenResponse(WebForm.Service.GetTokenResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetTokenResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public WebForm.Service.UserClass GetTokenResult;
+        
+        public GetTokenResponseBody() {
+        }
+        
+        public GetTokenResponseBody(WebForm.Service.UserClass GetTokenResult) {
+            this.GetTokenResult = GetTokenResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ServiceSoapChannel : WebForm.Service.ServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -147,6 +397,31 @@ namespace WebForm.Service {
             inValue.Body.username = username;
             inValue.Body.password = password;
             return ((WebForm.Service.ServiceSoap)(this)).LoginAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebForm.Service.GetTokenResponse WebForm.Service.ServiceSoap.GetToken(WebForm.Service.GetTokenRequest request) {
+            return base.Channel.GetToken(request);
+        }
+        
+        public WebForm.Service.UserClass GetToken(string code) {
+            WebForm.Service.GetTokenRequest inValue = new WebForm.Service.GetTokenRequest();
+            inValue.Body = new WebForm.Service.GetTokenRequestBody();
+            inValue.Body.code = code;
+            WebForm.Service.GetTokenResponse retVal = ((WebForm.Service.ServiceSoap)(this)).GetToken(inValue);
+            return retVal.Body.GetTokenResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebForm.Service.GetTokenResponse> WebForm.Service.ServiceSoap.GetTokenAsync(WebForm.Service.GetTokenRequest request) {
+            return base.Channel.GetTokenAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebForm.Service.GetTokenResponse> GetTokenAsync(string code) {
+            WebForm.Service.GetTokenRequest inValue = new WebForm.Service.GetTokenRequest();
+            inValue.Body = new WebForm.Service.GetTokenRequestBody();
+            inValue.Body.code = code;
+            return ((WebForm.Service.ServiceSoap)(this)).GetTokenAsync(inValue);
         }
     }
 }

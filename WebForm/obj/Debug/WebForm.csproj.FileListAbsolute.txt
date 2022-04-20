@@ -52,7 +52,6 @@ A:\ASP.NET-Web-Services\WebForm\bin\roslyn\VBCSCompiler.exe
 A:\ASP.NET-Web-Services\WebForm\bin\roslyn\VBCSCompiler.exe.config
 A:\ASP.NET-Web-Services\WebForm\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 A:\ASP.NET-Web-Services\WebForm\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-A:\ASP.NET-Web-Services\WebForm\obj\Debug\WebForm.csproj.AssemblyReference.cache
 A:\ASP.NET-Web-Services\WebForm\obj\Debug\WebForm.csproj.CoreCompileInputs.cache
 A:\ASP.NET-Web-Services\WebForm\obj\Debug\WebForm.csproj.CopyComplete
 A:\ASP.NET-Web-Services\WebForm\obj\Debug\WebForm.dll

@@ -1,0 +1,16 @@
+CREATE DATABASE QLHV
+GO
+
+USE QLHV
+GO
+
+CREATE TABLE tblUser
+(
+    Username NVARCHAR(64) NOT NULL PRIMARY KEY,
+    Password VARCHAR(64) NOT NULL,
+    Fullname NVARCHAR(64),
+    Email VARCHAR(64),
+    Status BIT,
+    Role BIT
+)
+GO

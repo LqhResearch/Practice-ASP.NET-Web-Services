@@ -77,6 +77,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SQLQuery.cs" />
+    <Compile Include="TokenClass.cs" />
+    <Compile Include="UserClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
