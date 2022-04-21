@@ -23,7 +23,7 @@
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <asp:TextBox ID="txtPassword_SignIn" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword_SignIn" runat="server" TextMode="Password"></asp:TextBox>
                         </div>
                         <asp:Button ID="btnSignIn" runat="server" CssClass="btn solid" Text="Đăng nhập" OnClick="btnSignIn_Click" />
                         <p class="social-text">hoặc</p>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <asp:TextBox ID="txtPassword_SignUp" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword_SignUp" runat="server" TextMode="Password"></asp:TextBox>
                         </div>
                         <asp:Button ID="btnSignUp" runat="server" CssClass="btn solid" Text="Đăng ký" />
                         <p class="social-text">hoặc</p>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace WebForm
 {
@@ -20,6 +21,23 @@ namespace WebForm
                     lblGender.Text = userinfo.gender;
                     lblName.Text = userinfo.name;
                     lblLocate.Text = userinfo.locale;
+
+                    service.SignUp(userinfo);
+                }
+                if(Request.QueryString["username"] != null)
+                {
+                    string username = Request.QueryString["username"];
+                    DataTable dt = service.GetUser(username);
+                    if(dt != null)
+                    {
+                        DataRow row = dt.Rows[0];
+                        imgAvatar.ImageUrl = dt.Rows[0]["Avatar"].ToString();
+                        lblID.Text = "";
+                        lblEmail.Text = dt.Rows[0]["Email"].ToString();
+                        lblGender.Text = dt.Rows[0]["Gender"].ToString();
+                        lblName.Text = dt.Rows[0]["Fullname"].ToString();
+                        lblLocate.Text = dt.Rows[0]["Locale"].ToString();
+                    }
                 }
             }
         }

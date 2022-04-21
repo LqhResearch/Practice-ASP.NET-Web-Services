@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Data;
+using System.IO;
 using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
@@ -65,6 +66,41 @@ namespace WebService
 
             TokenClass token = new JavaScriptSerializer().Deserialize<TokenClass>(responseFromServer);
             return GetUserProfile(token.access_token);
+        }
+
+        [WebMethod]
+        public bool SignUp(UserClass userinfo)
+        {
+            string sql = "SELECT * FROM tblUser WHERE Email = '" + userinfo.email + "'";
+            if (SQLQuery.ExecuteQuery(sql).Rows.Count == 0)
+            {
+                sql = "INSERT INTO tblUser VALUES (N'" + userinfo.email + "', '" + userinfo.email + "', '" + userinfo.email + "', N'" + userinfo.name + "', N'" + userinfo.gender + "', '" + userinfo.locale + "', N'" + userinfo.picture + "', 0, 2)";
+                return SQLQuery.ExecuteNonQuery(sql) > 0;
+            }
+            return false;
+        }
+
+        [WebMethod]
+        public DataTable GetUser(string username)
+        {
+            string sql = "SELECT * FROM tblUser WHERE Username = N'" + username + "'";
+            DataTable dt = SQLQuery.ExecuteQuery(sql);
+            dt.TableName = "tblUser";
+            return dt;
+        }
+
+        [WebMethod]
+        public bool IsFirstLogin(string username)
+        {
+            string sql = "SELECT * FROM tblUser WHERE Username = N'" + username + "' AND Status = 0";
+            return SQLQuery.ExecuteQuery(sql).Rows.Count > 0;
+        }
+
+        [WebMethod]
+        public bool ChangePassword(string username, string password)
+        {
+            string sql = "UPDATE tblUser SET Password = '" + password + "', Status = 1 WHERE Username = N'" + username + "'";
+            return SQLQuery.ExecuteQuery(sql).Rows.Count > 0;
         }
     }
 }

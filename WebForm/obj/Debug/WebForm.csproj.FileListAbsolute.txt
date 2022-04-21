@@ -56,3 +56,4 @@ A:\ASP.NET-Web-Services\WebForm\obj\Debug\WebForm.csproj.CoreCompileInputs.cache
 A:\ASP.NET-Web-Services\WebForm\obj\Debug\WebForm.csproj.CopyComplete
 A:\ASP.NET-Web-Services\WebForm\obj\Debug\WebForm.dll
 A:\ASP.NET-Web-Services\WebForm\obj\Debug\WebForm.pdb
+A:\ASP.NET-Web-Services\WebForm\obj\Debug\WebForm.csproj.AssemblyReference.cache

@@ -56,3 +56,4 @@ A:\ASP.NET-Web-Services\WebService\obj\Debug\WebService.csproj.CoreCompileInputs
 A:\ASP.NET-Web-Services\WebService\obj\Debug\WebService.csproj.CopyComplete
 A:\ASP.NET-Web-Services\WebService\obj\Debug\WebService.dll
 A:\ASP.NET-Web-Services\WebService\obj\Debug\WebService.pdb
+A:\ASP.NET-Web-Services\WebService\obj\Debug\WebService.csproj.AssemblyReference.cache

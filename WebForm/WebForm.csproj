@@ -79,17 +79,22 @@
     <Content Include="assets\css\login.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\js\login.js" />
+    <Content Include="ChangePassword.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="GoogleLogin.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="ShowUser.aspx" />
     <Content Include="Web.config" />
     <None Include="Connected Services\Service\Service.wsdl" />
-    <Content Include="Connected Services\Service\WebForm.Service.LoginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\Service\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,14 +138,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connected Services\Service\WebForm.Service.GetTokenResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\Service\WebForm.Service.UserClass.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="SiteMaster.Master" />
+    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

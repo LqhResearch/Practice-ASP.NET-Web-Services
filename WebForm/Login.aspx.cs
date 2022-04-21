@@ -12,10 +12,13 @@ namespace WebForm
 
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
-            if (service.Login(txtUserName_SignIn.Text, txtPassword_SignIn.Text))
+            string username = txtUserName_SignIn.Text;
+            if (service.Login(username, txtPassword_SignIn.Text))
             {
                 Session["admin_login"] = true;
-                Response.Redirect("/Default.aspx");
+                if (service.IsFirstLogin(username))
+                    Response.Redirect("/ChangePassword.aspx?username=" + username);
+                Response.Redirect("/ShowUser.aspx?username=" + username);
             }
         }
     }
