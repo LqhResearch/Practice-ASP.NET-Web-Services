@@ -67,18 +67,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service.asmx" />
+    <Content Include="CommentService.asmx" />
+    <Content Include="GoogleService.asmx" />
+    <Content Include="ProductService.asmx" />
+    <Content Include="UserService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service.asmx.cs">
-      <DependentUpon>Service.asmx</DependentUpon>
+    <Compile Include="CommentService.asmx.cs">
+      <DependentUpon>CommentService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GoogleService.asmx.cs">
+      <DependentUpon>GoogleService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProductService.asmx.cs">
+      <DependentUpon>ProductService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLQuery.cs" />
     <Compile Include="TokenClass.cs" />
     <Compile Include="UserClass.cs" />
+    <Compile Include="UserService.asmx.cs">
+      <DependentUpon>UserService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

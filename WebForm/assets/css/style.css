@@ -10,3 +10,14 @@
     align-items: center;
     justify-content: center;
 }
+
+.bg-grey {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.avatar_custom {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}

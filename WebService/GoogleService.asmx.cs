@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System.IO;
+﻿using System.IO;
 using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
@@ -8,22 +7,15 @@ using System.Web.Services;
 namespace WebService
 {
     /// <summary>
-    /// Summary description for Service
+    /// Summary description for GoogleService
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    public class Service : System.Web.Services.WebService
+    public class GoogleService : System.Web.Services.WebService
     {
-        [WebMethod]
-        public bool Login(string username, string password)
-        {
-            string sql = "SELECT * FROM tblUser WHERE Username = N'" + username + "' AND Password = '" + password + "'";
-            return SQLQuery.ExecuteQuery(sql).Rows.Count > 0;
-        }
-
         private string client_id = "1075264982100-jlub7osrjlrpo16s134lffifcphsso60.apps.googleusercontent.com";
         private string client_secret = "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";
         private string redirection_url = "https://localhost:44349/ShowUser.aspx";
@@ -69,7 +61,7 @@ namespace WebService
         }
 
         [WebMethod]
-        public bool SignUp(UserClass userinfo)
+        public bool GoogleSignUp(UserClass userinfo)
         {
             string sql = "SELECT * FROM tblUser WHERE Email = '" + userinfo.email + "'";
             if (SQLQuery.ExecuteQuery(sql).Rows.Count == 0)
@@ -78,29 +70,6 @@ namespace WebService
                 return SQLQuery.ExecuteNonQuery(sql) > 0;
             }
             return false;
-        }
-
-        [WebMethod]
-        public DataTable GetUser(string username)
-        {
-            string sql = "SELECT * FROM tblUser WHERE Username = N'" + username + "'";
-            DataTable dt = SQLQuery.ExecuteQuery(sql);
-            dt.TableName = "tblUser";
-            return dt;
-        }
-
-        [WebMethod]
-        public bool IsFirstLogin(string username)
-        {
-            string sql = "SELECT * FROM tblUser WHERE Username = N'" + username + "' AND Status = 0";
-            return SQLQuery.ExecuteQuery(sql).Rows.Count > 0;
-        }
-
-        [WebMethod]
-        public bool ChangePassword(string username, string password)
-        {
-            string sql = "UPDATE tblUser SET Password = '" + password + "', Status = 1 WHERE Username = N'" + username + "'";
-            return SQLQuery.ExecuteQuery(sql).Rows.Count > 0;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace WebService
 {
     public class SQLQuery
     {
-        static string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=QLHV;Integrated Security=True";
+        static string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Shop;Integrated Security=True";
 
         /// <summary>
         /// Truy vấn trả về một DataTable, phù hợp thực hiện các truy vấn như Select.

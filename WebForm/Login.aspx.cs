@@ -4,7 +4,8 @@ namespace WebForm
 {
     public partial class Login : System.Web.UI.Page
     {
-        Service.ServiceSoapClient service = new Service.ServiceSoapClient();
+        UserService.UserServiceSoapClient user = new UserService.UserServiceSoapClient();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -13,10 +14,10 @@ namespace WebForm
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
             string username = txtUserName_SignIn.Text;
-            if (service.Login(username, txtPassword_SignIn.Text))
+            if (user.Login(username, txtPassword_SignIn.Text))
             {
                 Session["admin_login"] = true;
-                if (service.IsFirstLogin(username))
+                if (user.IsFirstLogin(username))
                     Response.Redirect("/ChangePassword.aspx?username=" + username);
                 Response.Redirect("/ShowUser.aspx?username=" + username);
             }

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTokenResult" type="tns:UserClass" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserClass">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="given_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="family_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="link" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="picture" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locale" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GoogleSignUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userinfo" type="tns:UserClass" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoogleSignUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GoogleSignUpResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetToken" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GoogleSignUpSoapIn">
+    <wsdl:part name="parameters" element="tns:GoogleSignUp" />
+  </wsdl:message>
+  <wsdl:message name="GoogleSignUpSoapOut">
+    <wsdl:part name="parameters" element="tns:GoogleSignUpResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GoogleServiceSoap">
+    <wsdl:operation name="GetToken">
+      <wsdl:input message="tns:GetTokenSoapIn" />
+      <wsdl:output message="tns:GetTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GoogleSignUp">
+      <wsdl:input message="tns:GoogleSignUpSoapIn" />
+      <wsdl:output message="tns:GoogleSignUpSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GoogleServiceSoap" type="tns:GoogleServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetToken">
+      <soap:operation soapAction="http://tempuri.org/GetToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoogleSignUp">
+      <soap:operation soapAction="http://tempuri.org/GoogleSignUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GoogleServiceSoap12" type="tns:GoogleServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetToken">
+      <soap12:operation soapAction="http://tempuri.org/GetToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoogleSignUp">
+      <soap12:operation soapAction="http://tempuri.org/GoogleSignUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GoogleService">
+    <wsdl:port name="GoogleServiceSoap" binding="tns:GoogleServiceSoap">
+      <soap:address location="https://localhost:44339/GoogleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GoogleServiceSoap12" binding="tns:GoogleServiceSoap12">
+      <soap12:address location="https://localhost:44339/GoogleService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
