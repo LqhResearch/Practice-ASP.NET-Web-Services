@@ -32,6 +32,12 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/products/list.aspx">Sản phẩm</a>
                 </li>
+                <% if (Convert.ToBoolean(Session["Login"]) && Convert.ToInt32(Session["Role"]) == 1)
+                    { %>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin/AcceptedComment.aspx">Duyệt bình luận</a>
+                </li>
+                <% } %>
             </ul>
 
             <ul class="navbar-nav d-flex">
@@ -52,7 +58,7 @@
                     else
                     { %>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/Login.aspx"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                    <a class="nav-link active" href="/Login.aspx"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a>
                 </li>
                 <% } %>
             </ul>

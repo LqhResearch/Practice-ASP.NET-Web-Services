@@ -36,6 +36,13 @@ namespace WebForm.ProductService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddProduct", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> AddProductAsync(string name, int price, string thumnail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RatingProduct", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool RatingProduct(string username, int productID, int star);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RatingProduct", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> RatingProductAsync(string username, int productID, int star);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -87,6 +94,14 @@ namespace WebForm.ProductService {
         
         public System.Threading.Tasks.Task<bool> AddProductAsync(string name, int price, string thumnail) {
             return base.Channel.AddProductAsync(name, price, thumnail);
+        }
+        
+        public bool RatingProduct(string username, int productID, int star) {
+            return base.Channel.RatingProduct(username, productID, star);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RatingProductAsync(string username, int productID, int star) {
+            return base.Channel.RatingProductAsync(username, productID, star);
         }
     }
 }

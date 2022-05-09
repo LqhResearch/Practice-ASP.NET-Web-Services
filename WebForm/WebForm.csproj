@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=1.0.10123.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.dll.1.0.10123\lib\2.0\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -69,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\AcceptedComment.aspx" />
     <Content Include="assets\css\login.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\js\login.js" />
@@ -113,6 +117,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\AcceptedComment.aspx.cs">
+      <DependentUpon>AcceptedComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AcceptedComment.aspx.designer.cs">
+      <DependentUpon>AcceptedComment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

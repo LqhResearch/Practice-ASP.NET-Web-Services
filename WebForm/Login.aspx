@@ -54,7 +54,7 @@
                         <asp:Button ID="btnSignUp" runat="server" CssClass="btn solid" Text="Đăng ký" />
                         <p class="social-text">hoặc</p>
                         <div class="social-media">
-                            <a href="#" class="social-icon">
+                            <a href="/GoogleLogin.aspx" class="social-icon">
                                 <i class="fab fa-google"></i>
                             </a>
                             <a href="#" class="social-icon">
@@ -72,7 +72,7 @@
                         <p>Nếu bạn chưa có tài khoản, hãy nhấn vào đây để đăng ký</p>
                         <button type="button" class="btn transparent" id="sign-up-btn">Đăng ký</button>
                     </div>
-                    <img src="/img/log.svg" class="image" alt="" />
+                    <img src="/assets/img/log.svg" class="image" alt="" />
                 </div>
                 <div class="panel right-panel">
                     <div class="content">
@@ -80,7 +80,7 @@
                         <p>Nếu bạn đã có tài khoản, hãy nhấn vào đây để đăng nhập</p>
                         <button type="button" class="btn transparent" id="sign-in-btn">Đăng nhập</button>
                     </div>
-                    <img src="/img/register.svg" class="image" alt="" />
+                    <img src="/assets/img/register.svg" class="image" alt="" />
                 </div>
             </div>
         </div>

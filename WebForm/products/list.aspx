@@ -14,7 +14,7 @@
                                 <img src="<%# Eval("Thumbnail") %>" class="card-img-top" alt="" style="height: 300px">
                                 <div class="card-body">
                                     <h5 class="card-title"><%# Eval("ProductName") %></h5>
-                                    <p class="card-text"><b>Giá:</b> <%# Eval("Price") %></p>
+                                    <p class="card-text"><b>Giá:</b> <%# String.Format("{0:C0}", Eval("Price")) %></p>
                                     <a href="info.aspx?product-id=<%# Eval("ProductID") %>" class="btn btn-primary">Xem chi tiết</a>
                                 </div>
                             </div>

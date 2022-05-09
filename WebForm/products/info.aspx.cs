@@ -14,10 +14,9 @@ namespace WebForm.products
             {
                 string productId = Request.QueryString["product-id"];
                 DataRow row = product.GetProductbyId(productId).Rows[0];
-
                 img.ImageUrl = row["Thumbnail"].ToString();
                 txtName.Text = row["ProductName"].ToString();
-                txtPrice.Text = row["Price"].ToString();
+                txtPrice.Text = String.Format("{0:C0}", row["Price"]);
 
                 rptCommentList.DataSource = comment.ShowCommentByProductId(productId);
                 rptCommentList.DataBind();
@@ -26,7 +25,13 @@ namespace WebForm.products
 
         protected void btnComment_Click(object sender, EventArgs e)
         {
-            comment.AddComment(Request.QueryString["product-id"], Session["Username"].ToString(), txtComment.Text, "-1");
+            comment.AddComment(Request.QueryString["product-id"], Session["Username"].ToString(), txtComment.Text, Session["Role"].ToString());
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
+        }
+
+        protected void btnRating_Click(object sender, EventArgs e)
+        {
+            product.RatingProduct(Session["Username"].ToString(), Convert.ToInt32(Request.QueryString["product-id"]), Rating1.CurrentRating);
         }
     }
 }

@@ -56,6 +56,22 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="RatingProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="productID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="star" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RatingProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RatingProductResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetProductSoapIn">
@@ -76,6 +92,12 @@
   <wsdl:message name="AddProductSoapOut">
     <wsdl:part name="parameters" element="tns:AddProductResponse" />
   </wsdl:message>
+  <wsdl:message name="RatingProductSoapIn">
+    <wsdl:part name="parameters" element="tns:RatingProduct" />
+  </wsdl:message>
+  <wsdl:message name="RatingProductSoapOut">
+    <wsdl:part name="parameters" element="tns:RatingProductResponse" />
+  </wsdl:message>
   <wsdl:portType name="ProductServiceSoap">
     <wsdl:operation name="GetProduct">
       <wsdl:input message="tns:GetProductSoapIn" />
@@ -88,6 +110,10 @@
     <wsdl:operation name="AddProduct">
       <wsdl:input message="tns:AddProductSoapIn" />
       <wsdl:output message="tns:AddProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RatingProduct">
+      <wsdl:input message="tns:RatingProductSoapIn" />
+      <wsdl:output message="tns:RatingProductSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ProductServiceSoap" type="tns:ProductServiceSoap">
@@ -119,6 +145,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RatingProduct">
+      <soap:operation soapAction="http://tempuri.org/RatingProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ProductServiceSoap12" type="tns:ProductServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -142,6 +177,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddProduct">
       <soap12:operation soapAction="http://tempuri.org/AddProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RatingProduct">
+      <soap12:operation soapAction="http://tempuri.org/RatingProduct" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

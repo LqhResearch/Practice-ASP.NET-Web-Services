@@ -37,5 +37,12 @@ namespace WebService
             string sql = "INSERT INTO tblProduct (ProductName, Price, Thumbnail) VALUES (N'" + name + "', " + price + ", N'" + thumnail + "')";
             return SQLQuery.ExecuteNonQuery(sql) > 0;
         }
+
+        [WebMethod]
+        public bool RatingProduct(string username, int productID, int star)
+        {
+            string sql = "INSERT INTO tblRating VALUES (" + productID + ", N'" + username + "', " + star + ")";
+            return SQLQuery.ExecuteNonQuery(sql) > 0;
+        }
     }
 }

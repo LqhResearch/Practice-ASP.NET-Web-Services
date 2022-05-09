@@ -14,19 +14,36 @@ namespace WebService
     public class CommentService : System.Web.Services.WebService
     {
         [WebMethod]
-        public bool AddComment(string productID, string username, string content, string star = "-1")
+        public DataTable GetCommentNoAccepted()
         {
-            string sql = "INSERT INTO tblComment (ProductID, Username, StarNumber, Content) VALUES (" + productID + ", N'" + username + "', " + star + ", N'" + content + "')";
+            string sql = "SELECT * FROM tblComment, tblProduct WHERE tblComment.Status = 0 AND tblProduct.ProductID = tblComment.ProductID";
+            DataTable dt = SQLQuery.ExecuteQuery(sql);
+            dt.TableName = "tblComment";
+            return dt;
+        }
+
+        [WebMethod]
+        public bool AddComment(string productID, string username, string content, string role)
+        {
+            string status = role == "1" ? "1" : "0";
+            string sql = "INSERT INTO tblComment (ProductID, Username, Status, Content) VALUES (" + productID + ", N'" + username + "', " + status + ", N'" + content + "')";
             return SQLQuery.ExecuteNonQuery(sql) > 0;
         }
 
         [WebMethod]
         public DataTable ShowCommentByProductId(string productID)
         {
-            string sql = "SELECT * FROM tblComment, tblProduct, tblUser WHERE tblComment.Username = tblUser.Username AND tblComment.ProductID = tblProduct.ProductID AND tblProduct.ProductID = " + productID;
+            string sql = "SELECT * FROM tblComment, tblProduct, tblUser WHERE tblComment.Status = 1 AND tblComment.Username = tblUser.Username AND tblComment.ProductID = tblProduct.ProductID AND tblProduct.ProductID = " + productID;
             DataTable dt = SQLQuery.ExecuteQuery(sql);
             dt.TableName = "tblComment";
             return dt;
+        }
+
+        [WebMethod]
+        public bool AcceptedComment(string commentID)
+        {
+            string sql = "UPDATE tblComment SET Status = 1 WHERE CommentID = " + commentID;
+            return SQLQuery.ExecuteNonQuery(sql) > 0;
         }
     }
 }

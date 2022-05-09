@@ -66,7 +66,7 @@ namespace WebService
             string sql = "SELECT * FROM tblUser WHERE Email = '" + userinfo.email + "'";
             if (SQLQuery.ExecuteQuery(sql).Rows.Count == 0)
             {
-                sql = "INSERT INTO tblUser VALUES (N'" + userinfo.email + "', '" + userinfo.email + "', '" + userinfo.email + "', N'" + userinfo.name + "', N'" + userinfo.gender + "', '" + userinfo.locale + "', N'" + userinfo.picture + "', 0, 2)";
+                sql = "INSERT INTO tblUser VALUES (N'" + userinfo.email + "', '" + userinfo.email + "', '" + userinfo.email + "', N'" + userinfo.name + "', N'" + userinfo.gender + "', '" + userinfo.locale + "', N'" + userinfo.picture + "', 0, 0)";
                 return SQLQuery.ExecuteNonQuery(sql) > 0;
             }
             return false;

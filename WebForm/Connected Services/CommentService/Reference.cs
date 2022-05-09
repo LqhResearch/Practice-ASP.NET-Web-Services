@@ -16,12 +16,19 @@ namespace WebForm.CommentService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CommentService.CommentServiceSoap")]
     public interface CommentServiceSoap {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddComment", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCommentNoAccepted", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool AddComment(string productID, string username, string content, string star);
+        System.Data.DataTable GetCommentNoAccepted();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCommentNoAccepted", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetCommentNoAcceptedAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddComment", ReplyAction="*")]
-        System.Threading.Tasks.Task<bool> AddCommentAsync(string productID, string username, string content, string star);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool AddComment(string productID, string username, string content, string role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddComment", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> AddCommentAsync(string productID, string username, string content, string role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowCommentByProductId", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -29,6 +36,13 @@ namespace WebForm.CommentService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowCommentByProductId", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> ShowCommentByProductIdAsync(string productID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AcceptedComment", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool AcceptedComment(string commentID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AcceptedComment", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> AcceptedCommentAsync(string commentID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -58,12 +72,20 @@ namespace WebForm.CommentService {
                 base(binding, remoteAddress) {
         }
         
-        public bool AddComment(string productID, string username, string content, string star) {
-            return base.Channel.AddComment(productID, username, content, star);
+        public System.Data.DataTable GetCommentNoAccepted() {
+            return base.Channel.GetCommentNoAccepted();
         }
         
-        public System.Threading.Tasks.Task<bool> AddCommentAsync(string productID, string username, string content, string star) {
-            return base.Channel.AddCommentAsync(productID, username, content, star);
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetCommentNoAcceptedAsync() {
+            return base.Channel.GetCommentNoAcceptedAsync();
+        }
+        
+        public bool AddComment(string productID, string username, string content, string role) {
+            return base.Channel.AddComment(productID, username, content, role);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddCommentAsync(string productID, string username, string content, string role) {
+            return base.Channel.AddCommentAsync(productID, username, content, role);
         }
         
         public System.Data.DataTable ShowCommentByProductId(string productID) {
@@ -72,6 +94,14 @@ namespace WebForm.CommentService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> ShowCommentByProductIdAsync(string productID) {
             return base.Channel.ShowCommentByProductIdAsync(productID);
+        }
+        
+        public bool AcceptedComment(string commentID) {
+            return base.Channel.AcceptedComment(commentID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AcceptedCommentAsync(string commentID) {
+            return base.Channel.AcceptedCommentAsync(commentID);
         }
     }
 }
